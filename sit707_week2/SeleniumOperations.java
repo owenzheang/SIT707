@@ -45,7 +45,7 @@ public class SeleniumOperations {
 		sleep(2);
 	
 		// Load a webpage in chromium browser.
-		driver.get("https://www.twitch.tv/");
+		driver.get("https://www.officeworks.com.au/app/identity/create-account");
 		
 		/*
 		 * How to identify a HTML input field -
@@ -54,21 +54,45 @@ public class SeleniumOperations {
 		 * Step 3: Find out how to identify it, by id/name/...
 		 */
 		
-		WebElement button = driver.findElement(By.cssSelector("[data-a-target='login-button']"));
-		button.click();
-
+		// Find first input field which is firstname
+		WebElement firstname = driver.findElement(By.id("firstname"));
+		System.out.println("Found firstname: " + firstname);
+		// Send first name
+		firstname.sendKeys("Owen");
 		sleep(2);
 		
-		WebElement email = driver.findElement(By.id("login-username"));
+		/*
+		 * Find following input fields and populate with values
+		 */
+		// Write code
+		WebElement lastname = driver.findElement(By.id("lastname"));
+		System.out.println("Found lastname: " + lastname);
+		
+		lastname.sendKeys("Zheng");
+		sleep(2);
+		
+		WebElement phoneNumber = driver.findElement(By.id("phoneNumber"));
+		System.out.println("Found phoneNumber: " + phoneNumber);
+		
+		phoneNumber.sendKeys("0466155252");
+		sleep(2);
+		
+		WebElement email = driver.findElement(By.id("email"));
 		System.out.println("Found email: " + email);
 		
 		email.sendKeys("zheang001@gmail.com");
 		sleep(2);
 		
-		WebElement password = driver.findElement(By.id("password-input"));
+		WebElement password = driver.findElement(By.id("password"));
 		System.out.println("Found password: " + password);
 		
 		password.sendKeys("1111");
+		sleep(2);
+		
+		WebElement password2 = driver.findElement(By.id("confirmPassword"));
+		System.out.println("Found password2: " + password2);
+		
+		password2.sendKeys("1111");
 		sleep(2);
 		
 
@@ -78,7 +102,7 @@ public class SeleniumOperations {
 		 */
 		// Write code
 		
-		WebElement button2 = driver.findElement(By.cssSelector("[data-a-target='passport-login-button']"));
+		WebElement button2 = driver.findElement(By.cssSelector("[data-testid ='account-action-btn']"));
 		button2.click();
 
 		sleep(2);
